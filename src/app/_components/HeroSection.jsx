@@ -100,19 +100,18 @@ const HeroSection = () => {
       ref={containerRef}
       className="min-h-screen min-w-screen  bg-[#282828] flex flex-col items-center justify-center relative overflow-hidden"
     >
-      <div
-        ref={textRef}
-        className="absolute top-[8rem]  z-20 scale-x-[90%] flex gap-0 "
-      >
+      <div ref={textRef} className="absolute top-[8rem]  z-20 scale-x-[90%]">
         {"WONDERKIN TATTOO".split("").map((text, i) => {
           return (
-            <p
+            <span
               ref={(el) => (spanRef.current[i] = el)}
-              className="main-text text-[14vw] font-freightProMedium scale-x-[75%]"
+              className={`main-text text-[13.5vw] font-freightProMedium scale-x-[75%] inline-block ${
+                text === " " ? "ml-4" : "-ml-10"
+              }`}
               key={i}
             >
               {text}
-            </p>
+            </span>
           );
         })}
       </div>
