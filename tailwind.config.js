@@ -11,6 +11,13 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        "hero-bg": "url(/elli-bg.jpg)",
+      },
+      fontFamily: {
+        freightProMedium: ["freightProMedium", "sans-serif"],
+        freightProBold: ["freightProBold", "sans-serif"],
+      },
     },
   },
   plugins: [],

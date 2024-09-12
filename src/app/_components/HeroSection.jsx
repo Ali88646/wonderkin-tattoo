@@ -102,17 +102,17 @@ const HeroSection = () => {
     >
       <div
         ref={textRef}
-        className="text-[10vw] font-light tracking-tight absolute top-[8rem]  z-20 scale-x-90 "
+        className="absolute top-[8rem]  z-20 scale-x-[90%] flex gap-0 "
       >
         {"WONDERKIN TATTOO".split("").map((text, i) => {
           return (
-            <span
+            <p
               ref={(el) => (spanRef.current[i] = el)}
-              className="heroLetter inline-block"
+              className="main-text text-[14vw] font-freightProMedium scale-x-[75%]"
               key={i}
             >
               {text}
-            </span>
+            </p>
           );
         })}
       </div>

@@ -1,12 +1,92 @@
-import React from "react";
+"use client";
+import Image from "next/image";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
+//===>
 const SecondSection = () => {
+  const imageContainerRef = useRef(null);
+  const firstImageRef = useRef(null);
+  const secondImageRef = useRef(null);
+  const secondContainerRef = useRef(null);
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: imageContainerRef.current,
+        markers: true,
+        scrub: true,
+        start: "top top",
+        end: "bottom 40%",
+        pin: secondContainerRef.current,
+      },
+    });
+
+    tl.to(
+      firstImageRef.current,
+      {
+        top: "-60%",
+        scale: 1.3,
+      },
+      "a"
+    ).to(
+      secondImageRef.current,
+      {
+        top: 0,
+        scale: 1,
+      },
+      "a"
+    );
+  });
+
   return (
     <>
-      <div className="h-screen relative z-50 bg-[#1D1D1D]">SecondSection</div>
-      <div className="container w-screen relative absolute top-0 left-0 z-50">
-        <div className="w-[30vw] h-[30vw] rounded-full border-t-gray-400 border-l-gray-400 bg-white"></div>
+      <div
+        ref={secondContainerRef}
+        className="min-h-[120vh] relative z-50 bg-[#1D1D1D] grid grid-cols-2"
+      >
+        <div className="circle h-[100vh] w-[100vh] border border-gray-700 rounded-full absolute -left-[50vh] top-[20vh]"></div>
+        <div className="second-section-left-col flex items-center justify-center ">
+          <div className="second-section-heading-text w-full flex flex-col justify-center ">
+            <h2 className="text-[5.5vw] self-end uppercase">Leidenschaft</h2>
+            <h2 className="text-[5.5vw] self-start uppercase">und Präzision</h2>
+            <div className="w-1/2 mt-10 self-end">
+              <p className="text-sm font-normal text-[#8F8F8F]">
+                Hey, ich bin Nicki und seit 2017 widme ich mich in meinem Studio
+                in Düsseldorf dem Tätowieren. Meine Expertise liegt im Mandala-
+                und Traditionalstil, wobei ich immer offen für neue kreative
+                Ideen bin, damit wir zusammen dein perfektes Tattoo finden.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="second-section-right-col flex items-end justify-center overflow-hidden">
+          <div
+            ref={imageContainerRef}
+            className="image-container relative w-[55%] h-screen overflow-hidden"
+          >
+            <Image
+              ref={firstImageRef}
+              src={"/sec-2-img-1.jpg"}
+              width={"673"}
+              height={"706"}
+              alt="second-section-img-1"
+              className="absolute top-0 left-0 w-full h-full"
+            />
+            <Image
+              ref={secondImageRef}
+              src={"/sec-2-img-2.jpg"}
+              width={"673"}
+              height={"706"}
+              alt="second-section-img-1"
+              className="absolute top-[100%] left-0 w-full h-full"
+            />
+          </div>
+        </div>
       </div>
+      <div className="w-screen h-screen"></div>
     </>
   );
 };

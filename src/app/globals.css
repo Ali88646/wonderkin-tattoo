@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -10,12 +12,27 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #e8e8e8;
   }
+}
+
+@font-face {
+  font-family: "freightProMedium";
+  src: url("/fonts/FreightBigProMedium-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "freightProBold";
+  src: url("/fonts/FreightBigProSemibold-Regular.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
 }
 
 body {
   color: var(--foreground);
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
 }
 
 @layer utilities {
