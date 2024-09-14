@@ -12,7 +12,11 @@ module.exports = {
         foreground: "var(--foreground)",
       },
       backgroundImage: {
-        "hero-bg": "url(/elli-bg.jpg)",
+        sec3Image1: `url("/ThirdSectionImages/gallery-1-desktop.jpg")`,
+        sec3Image2: `url("/ThirdSectionImages/gallery-2-desktop.jpg")`,
+        sec3Image3: `url("/ThirdSectionImages/gallery-3-desktop.jpg")`,
+        sec3Image4: `url("/ThirdSectionImages/gallery-4-desktop.jpg")`,
+        sec3Image5: `url("/ThirdSectionImages/gallery-5-desktop.jpg")`,
       },
       fontFamily: {
         freightProMedium: ["freightProMedium", "sans-serif"],
