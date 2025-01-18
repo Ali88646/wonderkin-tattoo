@@ -105,7 +105,7 @@ const HeroSection = () => {
           return (
             <span
               ref={(el) => (spanRef.current[i] = el)}
-              className={`main-text text-[13.5vw] font-freightProMedium scale-x-[75%] inline-block ${
+              className={`main-text text-[10.5vw] font-freightProMedium scale-x-[75%] inline-block ${
                 text === " " ? "ml-4" : "-ml-10"
               }`}
               key={i}

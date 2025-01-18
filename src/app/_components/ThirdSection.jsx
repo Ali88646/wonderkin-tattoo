@@ -14,12 +14,15 @@ const ThirdSection = () => {
   const image3ContentRef = useRef(null);
   const imageFourRef = useRef(null);
   const imageFiveRef = useRef(null);
-
+  const galrie_1Ref = useRef(null);
+  const galrie_2Ref = useRef(null);
+  const galrie_3Ref = useRef(null);
+  const ansehenRef = useRef(null);
   useGSAP(() => {
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: imageSectionRef.current,
-        start: "19% top",
+        start: "top top",
         end: "bottom top",
         scrub: true,
         pin: imageSectionRef.current,
@@ -32,7 +35,7 @@ const ThirdSection = () => {
         imageOneRef.current,
         {
           scale: 2,
-          top: -380,
+          top: -480,
         },
         "a"
       )
@@ -40,7 +43,7 @@ const ThirdSection = () => {
         imageTwoRef.current,
         {
           scale: 2,
-          right: -780,
+          right: -960,
         },
         "a"
       )
@@ -48,7 +51,7 @@ const ThirdSection = () => {
         imageFourRef.current,
         {
           scale: 2,
-          left: -800,
+          left: -960,
         },
         "a"
       )
@@ -56,7 +59,7 @@ const ThirdSection = () => {
         imageFiveRef.current,
         {
           scale: 2,
-          bottom: -380,
+          bottom: -480,
         },
         "a"
       )
@@ -68,14 +71,48 @@ const ThirdSection = () => {
           height: "120%",
         },
         "b"
-      );
+      )
+      .to(
+        galrie_1Ref.current,
+        {
+          opacity: 1,
+          scaleX: 0.75,
+          right: 300,
+        },
+        "c"
+      )
+      .to(
+        galrie_2Ref.current,
+        {
+          opacity: 1,
+          scaleX: 0.75,
+          right: 200,
+        },
+        "c"
+      )
+      .to(
+        galrie_3Ref.current,
+        {
+          opacity: 1,
+          scaleX: 0.75,
+          right: 150,
+        },
+        "c"
+      )
+      .from(ansehenRef.current, {
+        opacity: 0,
+        x: 10,
+        y: -10,
+        scaleX: 0.75,
+        delay: 0.3,
+      });
   });
 
   return (
     <>
       <div
         ref={imageSectionRef}
-        className="w-screen h-[120vh] flex flex-col items-center justify-end bg-[#1d1d1d]"
+        className="w-screen h-[100vh] flex flex-col items-center justify-end bg-[#1d1d1d] mt-[20vh]"
       >
         <div
           ref={imageContainerRef}
@@ -84,36 +121,56 @@ const ThirdSection = () => {
           <div
             ref={imageOneRef}
             className="w-[66.5%] h-[33%] top-0 left-0 absolute bg-sec3Image1 bg-cover"
-          >
-            1
-          </div>
+          ></div>
           <div
             ref={imageTwoRef}
             className=" w-[33%] h-[49.5%] absolute top-[17.5%] -right-5 bg-sec3Image2 bg-cover"
-          >
-            2
-          </div>
+          ></div>
           <div
             ref={imagethreeRef}
-            className=" w-[33%] h-[33%] grid grid-cols-2 p-24 bg-sec3Image3 bg-cover mt-5"
+            className=" w-[33%] h-[33%] bg-sec3Image3 bg-cover mt-5 relative"
           >
-            <div>empty</div>
-            <div ref={image3ContentRef} className="bg-green-200 opacity-0">
-              content
+            <div
+              ref={image3ContentRef}
+              className=" bg-opacity-65 w-1/2 h-full absolute top-0 right-0 galrie-1"
+            >
+              <h2
+                ref={galrie_1Ref}
+                className="text-gray-900 absolute font-freightProBold text-[13vw] top-[15%] right-[20%] scale-y-125 scale-x-50 opacity-0"
+              >
+                GA
+              </h2>
+              <h2
+                ref={galrie_2Ref}
+                className="text-gray-900 absolute font-freightProBold text-[13vw] top-[35%] right-0 scale-y-125 scale-x-50 opacity-0 mt-4"
+              >
+                LER
+              </h2>
+              <h2
+                ref={galrie_3Ref}
+                className="text-gray-900 absolute font-freightProBold text-[13vw] top-[55%] right-0 scale-y-125 scale-x-50 opacity-0 mt-8"
+              >
+                IE
+              </h2>
+              <div
+                className="absolute flex flex-col items-center justify-center bottom-1/4 left-1/3"
+                ref={ansehenRef}
+              >
+                <h2 className=" font-freightProMedium text-black/90 text-4xl">
+                  ANSEHEN
+                </h2>
+                <div className="w-full h-[2px] bg-black"></div>
+              </div>
             </div>
           </div>
           <div
             ref={imageFourRef}
             className=" w-[33%] h-[49.5%] absolute top-[36.4%] -left-5 bg-sec3Image4 bg-cover"
-          >
-            4
-          </div>
+          ></div>
           <div
             ref={imageFiveRef}
             className="w-[66%] h-[33%] absolute -bottom-10 right-0 bg-sec3Image5 bg-cover pr-7"
-          >
-            5
-          </div>
+          ></div>
         </div>
       </div>
       <div className="w-screen h-screen  bg-[#1d1d1d]">end</div>
